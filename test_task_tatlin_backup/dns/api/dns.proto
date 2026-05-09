@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package test.task.dns;
+
+option go_package = "pkg/generated/dns;dns";
+
+service DnsService {
+  rpc AddDns(AddDnsRequest) returns (AddDnsResponse) {}
+  rpc DeleteDns(DeleteDnsRequest) returns (DeleteDnsResponse) {}
+  rpc GetList(GetListRequest) returns (GetListResponse) {}
+}
+
+message AddDnsResponse {}
+message DeleteDnsResponse {}
+message GetListRequest {}
+
+message AddDnsRequest {
+  string ip = 1;
+}
+
+message DeleteDnsRequest {
+  string ip = 1;
+}
+
+message GetListResponse {
+  repeated string ips = 1;
+}
